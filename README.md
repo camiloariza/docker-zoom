@@ -8,12 +8,14 @@
 
 ```shell
 docker run -ti --rm \
-  --runtime=nvidia \
+  --gpus all \
   -e DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v $HOME/.zoom/:/root/.zoom \
   -v /dev/shm:/dev/shm \
   --device /dev/video0 \
   --device /dev/snd \
   --device /dev/dri \
+  --name zoom \
   camiloariza/zoom
 ```
